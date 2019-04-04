@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		407D6AD02253D74700C88BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6ACF2253D74700C88BFD /* AppDelegate.swift */; };
+		407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */; };
+		407D6AD52253D74700C88BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407D6AD32253D74700C88BFD /* Main.storyboard */; };
+		407D6AD72253D74800C88BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D6AD62253D74800C88BFD /* Assets.xcassets */; };
+		407D6ADA2253D74800C88BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407D6AD82253D74800C88BFD /* LaunchScreen.storyboard */; };
+		407D6AE52253D74800C88BFD /* NasaMediaLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AE42253D74800C88BFD /* NasaMediaLibraryTests.swift */; };
+		407D6AF02253E09F00C88BFD /* NasaLibraryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AEF2253E09F00C88BFD /* NasaLibraryListTableViewCell.swift */; };
+		407D6AF82253E8E800C88BFD /* NasaMediaLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AF72253E8E800C88BFD /* NasaMediaLibraryModel.swift */; };
+		407D6AFA2253E97800C88BFD /* NasaMediaLibraryRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AF92253E97800C88BFD /* NasaMediaLibraryRequestManager.swift */; };
+		407D6AFD2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AFC2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift */; };
+		407D6AFF2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AFE2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift */; };
+		407D6B012254B66D00C88BFD /* NasaMediaLibraryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B002254B66D00C88BFD /* NasaMediaLibraryRequest.swift */; };
+		407D6B032254B6EB00C88BFD /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B022254B6EB00C88BFD /* URLRequestExtension.swift */; };
+		407D6B052254B7E500C88BFD /* HTTPURLResponseExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B042254B7E500C88BFD /* HTTPURLResponseExtenstion.swift */; };
+		407D6B072254B83B00C88BFD /* NasaMediaResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B062254B83B00C88BFD /* NasaMediaResponseError.swift */; };
+		407D6B092254B92400C88BFD /* NasaMediaLibraryPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B082254B92400C88BFD /* NasaMediaLibraryPageResponse.swift */; };
+		407D6B0B2254F73D00C88BFD /* AlertControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B0A2254F73D00C88BFD /* AlertControllerExtenstion.swift */; };
+		407D6B0D22560A4600C88BFD /* NasaLibraryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B0C22560A4600C88BFD /* NasaLibraryDetailsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		407D6AE12253D74800C88BFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 407D6AC42253D74700C88BFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 407D6ACB2253D74700C88BFD;
+			remoteInfo = NasaMediaLibrary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		407D6ACC2253D74700C88BFD /* NasaMediaLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaMediaLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		407D6ACF2253D74700C88BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryViewController.swift; sourceTree = "<group>"; };
+		407D6AD42253D74700C88BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		407D6AD62253D74800C88BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		407D6AD92253D74800C88BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		407D6ADB2253D74800C88BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407D6AE02253D74800C88BFD /* NasaMediaLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaMediaLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		407D6AE42253D74800C88BFD /* NasaMediaLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryTests.swift; sourceTree = "<group>"; };
+		407D6AE62253D74800C88BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407D6AEF2253E09F00C88BFD /* NasaLibraryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryListTableViewCell.swift; sourceTree = "<group>"; };
+		407D6AF72253E8E800C88BFD /* NasaMediaLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryModel.swift; sourceTree = "<group>"; };
+		407D6AF92253E97800C88BFD /* NasaMediaLibraryRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryRequestManager.swift; sourceTree = "<group>"; };
+		407D6AFC2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryViewModel.swift; sourceTree = "<group>"; };
+		407D6AFE2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		407D6B002254B66D00C88BFD /* NasaMediaLibraryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryRequest.swift; sourceTree = "<group>"; };
+		407D6B022254B6EB00C88BFD /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
+		407D6B042254B7E500C88BFD /* HTTPURLResponseExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseExtenstion.swift; sourceTree = "<group>"; };
+		407D6B062254B83B00C88BFD /* NasaMediaResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaResponseError.swift; sourceTree = "<group>"; };
+		407D6B082254B92400C88BFD /* NasaMediaLibraryPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryPageResponse.swift; sourceTree = "<group>"; };
+		407D6B0A2254F73D00C88BFD /* AlertControllerExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtenstion.swift; sourceTree = "<group>"; };
+		407D6B0C22560A4600C88BFD /* NasaLibraryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaLibraryDetailsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		407D6AC92253D74700C88BFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407D6ADD2253D74800C88BFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		407D6AC32253D74700C88BFD = {
+			isa = PBXGroup;
+			children = (
+				407D6ACE2253D74700C88BFD /* NasaMediaLibrary */,
+				407D6AE32253D74800C88BFD /* NasaMediaLibraryTests */,
+				407D6ACD2253D74700C88BFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		407D6ACD2253D74700C88BFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				407D6ACC2253D74700C88BFD /* NasaMediaLibrary.app */,
+				407D6AE02253D74800C88BFD /* NasaMediaLibraryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		407D6ACE2253D74700C88BFD /* NasaMediaLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				407D6ADB2253D74800C88BFD /* Info.plist */,
+				407D6AF62253E73800C88BFD /* StoryBoards */,
+				407D6AF52253E6FA00C88BFD /* Supporting Files */,
+				407D6AF42253E69400C88BFD /* Utility */,
+				407D6AF32253E67D00C88BFD /* Networking */,
+				407D6AF22253E66E00C88BFD /* Models */,
+				407D6AF12253E65E00C88BFD /* Views */,
+				407D6AFB2253E9A800C88BFD /* ViewModels */,
+			);
+			path = NasaMediaLibrary;
+			sourceTree = "<group>";
+		};
+		407D6AE32253D74800C88BFD /* NasaMediaLibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				407D6AE42253D74800C88BFD /* NasaMediaLibraryTests.swift */,
+				407D6AE62253D74800C88BFD /* Info.plist */,
+			);
+			path = NasaMediaLibraryTests;
+			sourceTree = "<group>";
+		};
+		407D6AF12253E65E00C88BFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				407D6AEF2253E09F00C88BFD /* NasaLibraryListTableViewCell.swift */,
+				407D6B0C22560A4600C88BFD /* NasaLibraryDetailsViewController.swift */,
+				407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */,
+				407D6AFE2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift */,
+			);
+			name = Views;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		407D6AF22253E66E00C88BFD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				407D6AF72253E8E800C88BFD /* NasaMediaLibraryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		407D6AF32253E67D00C88BFD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				407D6AF92253E97800C88BFD /* NasaMediaLibraryRequestManager.swift */,
+				407D6B002254B66D00C88BFD /* NasaMediaLibraryRequest.swift */,
+				407D6B062254B83B00C88BFD /* NasaMediaResponseError.swift */,
+				407D6B082254B92400C88BFD /* NasaMediaLibraryPageResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		407D6AF42253E69400C88BFD /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				407D6B022254B6EB00C88BFD /* URLRequestExtension.swift */,
+				407D6B042254B7E500C88BFD /* HTTPURLResponseExtenstion.swift */,
+				407D6B0A2254F73D00C88BFD /* AlertControllerExtenstion.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		407D6AF52253E6FA00C88BFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				407D6ACF2253D74700C88BFD /* AppDelegate.swift */,
+				407D6AD62253D74800C88BFD /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		407D6AF62253E73800C88BFD /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				407D6AD32253D74700C88BFD /* Main.storyboard */,
+				407D6AD82253D74800C88BFD /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		407D6AFB2253E9A800C88BFD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				407D6AFC2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		407D6ACB2253D74700C88BFD /* NasaMediaLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407D6AE92253D74800C88BFD /* Build configuration list for PBXNativeTarget "NasaMediaLibrary" */;
+			buildPhases = (
+				407D6AC82253D74700C88BFD /* Sources */,
+				407D6AC92253D74700C88BFD /* Frameworks */,
+				407D6ACA2253D74700C88BFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NasaMediaLibrary;
+			productName = NasaMediaLibrary;
+			productReference = 407D6ACC2253D74700C88BFD /* NasaMediaLibrary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		407D6ADF2253D74800C88BFD /* NasaMediaLibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 407D6AEC2253D74800C88BFD /* Build configuration list for PBXNativeTarget "NasaMediaLibraryTests" */;
+			buildPhases = (
+				407D6ADC2253D74800C88BFD /* Sources */,
+				407D6ADD2253D74800C88BFD /* Frameworks */,
+				407D6ADE2253D74800C88BFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				407D6AE22253D74800C88BFD /* PBXTargetDependency */,
+			);
+			name = NasaMediaLibraryTests;
+			productName = NasaMediaLibraryTests;
+			productReference = 407D6AE02253D74800C88BFD /* NasaMediaLibraryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		407D6AC42253D74700C88BFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Dharamshi Lopa D";
+				TargetAttributes = {
+					407D6ACB2253D74700C88BFD = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					407D6ADF2253D74800C88BFD = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 407D6ACB2253D74700C88BFD;
+					};
+				};
+			};
+			buildConfigurationList = 407D6AC72253D74700C88BFD /* Build configuration list for PBXProject "NasaMediaLibrary" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 407D6AC32253D74700C88BFD;
+			productRefGroup = 407D6ACD2253D74700C88BFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				407D6ACB2253D74700C88BFD /* NasaMediaLibrary */,
+				407D6ADF2253D74800C88BFD /* NasaMediaLibraryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		407D6ACA2253D74700C88BFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D6ADA2253D74800C88BFD /* LaunchScreen.storyboard in Resources */,
+				407D6AD72253D74800C88BFD /* Assets.xcassets in Resources */,
+				407D6AD52253D74700C88BFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407D6ADE2253D74800C88BFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		407D6AC82253D74700C88BFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D6B032254B6EB00C88BFD /* URLRequestExtension.swift in Sources */,
+				407D6B092254B92400C88BFD /* NasaMediaLibraryPageResponse.swift in Sources */,
+				407D6B0B2254F73D00C88BFD /* AlertControllerExtenstion.swift in Sources */,
+				407D6AFF2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift in Sources */,
+				407D6B012254B66D00C88BFD /* NasaMediaLibraryRequest.swift in Sources */,
+				407D6AF02253E09F00C88BFD /* NasaLibraryListTableViewCell.swift in Sources */,
+				407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */,
+				407D6AFD2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift in Sources */,
+				407D6AD02253D74700C88BFD /* AppDelegate.swift in Sources */,
+				407D6AFA2253E97800C88BFD /* NasaMediaLibraryRequestManager.swift in Sources */,
+				407D6B0D22560A4600C88BFD /* NasaLibraryDetailsViewController.swift in Sources */,
+				407D6AF82253E8E800C88BFD /* NasaMediaLibraryModel.swift in Sources */,
+				407D6B072254B83B00C88BFD /* NasaMediaResponseError.swift in Sources */,
+				407D6B052254B7E500C88BFD /* HTTPURLResponseExtenstion.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		407D6ADC2253D74800C88BFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407D6AE52253D74800C88BFD /* NasaMediaLibraryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		407D6AE22253D74800C88BFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 407D6ACB2253D74700C88BFD /* NasaMediaLibrary */;
+			targetProxy = 407D6AE12253D74800C88BFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		407D6AD32253D74700C88BFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				407D6AD42253D74700C88BFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		407D6AD82253D74800C88BFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				407D6AD92253D74800C88BFD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		407D6AE72253D74800C88BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		407D6AE82253D74800C88BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		407D6AEA2253D74800C88BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NasaMediaLibrary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lopa.appleios.NasaMediaLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		407D6AEB2253D74800C88BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NasaMediaLibrary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lopa.appleios.NasaMediaLibrary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		407D6AED2253D74800C88BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NasaMediaLibraryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lopa.appleios.NasaMediaLibraryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NasaMediaLibrary.app/NasaMediaLibrary";
+			};
+			name = Debug;
+		};
+		407D6AEE2253D74800C88BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NasaMediaLibraryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lopa.appleios.NasaMediaLibraryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NasaMediaLibrary.app/NasaMediaLibrary";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		407D6AC72253D74700C88BFD /* Build configuration list for PBXProject "NasaMediaLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407D6AE72253D74800C88BFD /* Debug */,
+				407D6AE82253D74800C88BFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407D6AE92253D74800C88BFD /* Build configuration list for PBXNativeTarget "NasaMediaLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407D6AEA2253D74800C88BFD /* Debug */,
+				407D6AEB2253D74800C88BFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		407D6AEC2253D74800C88BFD /* Build configuration list for PBXNativeTarget "NasaMediaLibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				407D6AED2253D74800C88BFD /* Debug */,
+				407D6AEE2253D74800C88BFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 407D6AC42253D74700C88BFD /* Project object */;
+}
