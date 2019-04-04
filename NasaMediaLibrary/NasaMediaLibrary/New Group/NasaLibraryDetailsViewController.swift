@@ -13,6 +13,10 @@ class NasaLibraryDetailsViewController: UIViewController {
     var detailModel:NasaMediaLibraryCollectionItem?
     @IBOutlet weak var detailTableView: UITableView!
     
+    private enum detailIdentifiers {
+        static let CellIdentifier = "nasa library detail cell"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +27,6 @@ class NasaLibraryDetailsViewController: UIViewController {
     private func setUpDetailView(){
         
         self.navigationItem.title = "Nasa Image Details"
-        self.detailTableView.delegate = self
         self.detailTableView.dataSource = self
         self.detailTableView.reloadData()
     }
@@ -36,7 +39,7 @@ extension NasaLibraryDetailsViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       if let cell = tableView.dequeueReusableCell(withIdentifier: "nasa library detail cell",
+       if let cell = tableView.dequeueReusableCell(withIdentifier: detailIdentifiers.CellIdentifier,
                                                    for: indexPath) as? NasaLibraryDetailTableViewCell{
         
         
@@ -50,10 +53,5 @@ extension NasaLibraryDetailsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    
-}
-
-extension NasaLibraryDetailsViewController : UITableViewDelegate{
-    
+ 
 }

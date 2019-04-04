@@ -20,7 +20,6 @@ class NasaMediaLibraryViewController: UIViewController {
         case searchBegan
         case searchEndedWithResults
         case searchFailedWithoutResults
-        
     }
     
     private var mediaLibraryListViewModel:NasaMediaLibraryViewModel?
@@ -56,7 +55,7 @@ class NasaMediaLibraryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier{
-        case "show nasa image details":
+        case identifiers.segueIdentifier:
             if let detailViewController = segue.destination as? NasaLibraryDetailsViewController, let selectedCell = sender as? NasaLibraryListTableViewCell, let selectedIndexPath = tableView.indexPath(for: selectedCell) {
                 detailViewController.detailModel = mediaLibraryListViewModel?.nasaMediaLibraryModel(at: selectedIndexPath.row)
 
@@ -149,21 +148,10 @@ extension NasaMediaLibraryViewController:UITableViewDataSource{
 extension NasaMediaLibraryViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "show nasa image details", sender:tableView.cellForRow(at: indexPath))
+        performSegue(withIdentifier: identifiers.segueIdentifier, sender:tableView.cellForRow(at: indexPath))
     }
     
 }
-
-//extension NasaMediaLibraryViewController:UITableViewDataSourcePrefetching{
-//    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-//         if indexPaths.contains(where: isLoadingCell) {
-//            print("fetching request for next pages")
-//            mediaLibraryListViewModel?.fetchMediaLibraryCollectionItems()
-//        }
-//    }
-//
-//
-//}
 
 private extension NasaMediaLibraryViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
@@ -205,7 +193,7 @@ extension NasaMediaLibraryViewController:NasaLibraryListViewModelDelegate{
     func onFetchFailed(with reason: String) {
         
         self.updateUI(for: .searchFailedWithoutResults)
-        let title = "failed to load the media"
+        let title = "Failed to load the media"
         let action = UIAlertAction(title: "OK", style: .default)
         self.displayAlert(with: title , message: reason, actions: [action])
     }

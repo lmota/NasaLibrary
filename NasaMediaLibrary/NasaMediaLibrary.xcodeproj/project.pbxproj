@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4056D97D2256AADA00D27375 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D97C2256AADA00D27375 /* Constants.swift */; };
 		407D6AD02253D74700C88BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6ACF2253D74700C88BFD /* AppDelegate.swift */; };
 		407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */; };
 		407D6AD52253D74700C88BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407D6AD32253D74700C88BFD /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4056D97C2256AADA00D27375 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		407D6ACC2253D74700C88BFD /* NasaMediaLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaMediaLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D6ACF2253D74700C88BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				407D6B022254B6EB00C88BFD /* URLRequestExtension.swift */,
 				407D6B042254B7E500C88BFD /* HTTPURLResponseExtenstion.swift */,
 				407D6B0A2254F73D00C88BFD /* AlertControllerExtenstion.swift */,
+				4056D97C2256AADA00D27375 /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				407D6B0B2254F73D00C88BFD /* AlertControllerExtenstion.swift in Sources */,
 				407D6AFF2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift in Sources */,
 				407D6B012254B66D00C88BFD /* NasaMediaLibraryRequest.swift in Sources */,
+				4056D97D2256AADA00D27375 /* Constants.swift in Sources */,
 				407D6AF02253E09F00C88BFD /* NasaLibraryListTableViewCell.swift in Sources */,
 				407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */,
 				407D6AFD2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift in Sources */,

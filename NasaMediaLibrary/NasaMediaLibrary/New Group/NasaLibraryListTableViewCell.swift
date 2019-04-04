@@ -20,7 +20,7 @@ class NasaLibraryListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         nasaImage.createRoundedBorder()
-        self.contentView.backgroundColor = UIColor(red:0.925, green: 1.0, blue: 1.0, alpha: 1)
+        self.contentView.backgroundColor = Constants.backgroundColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,13 +36,13 @@ class NasaLibraryListTableViewCell: UITableViewCell {
                 return
             }
             title.text = mediaLibraryData.title // fetch from model
-            title.alpha = 1
+            title.isHidden = false
             
             if let formattedDate = mediaLibraryData.date.getFormattedDate(){
                 location.text = formattedDate
             }
             
-            location.alpha = 1
+            location.isHidden = false
             
             guard let mediaLibraryItemLink = model.links.first else
             {
@@ -79,11 +79,11 @@ extension String{
     
     func getFormattedDate() -> String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.dateFormat = Constants.serverDateFormat
         
         let dateFormatterNew = DateFormatter()
-        dateFormatterNew.dateFormat = "EEEE, MMM d, yyyy"
-        dateFormatterNew.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatterNew.dateFormat = Constants.desiredDateFormat
+        dateFormatterNew.timeZone = TimeZone(abbreviation: Constants.timeZone) // check if this is needed
         if let date = dateFormatter.date(from: self){
             return dateFormatterNew.string(from: date)
         }
@@ -96,7 +96,7 @@ extension String{
 extension UIImageView {
     
     func createRoundedBorder(){
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = CGFloat(Constants.imageViewCornerRadius)
         self.layer.borderColor = UIColor.black.cgColor
         self.clipsToBounds = true
     }
