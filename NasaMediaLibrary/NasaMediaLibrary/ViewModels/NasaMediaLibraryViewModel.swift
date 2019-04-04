@@ -21,6 +21,7 @@ class NasaMediaLibraryViewModel {
     private var currentPage = 0
     private var total = 0
     private var isFetchInProgress = false
+    private var hasReachedMaxPageLimit = false
     
     var requestManager:NasaMediaLibraryRequestManager = NasaMediaLibraryRequestManager()
     var request:NasaMediaLibraryRequest
@@ -44,8 +45,13 @@ class NasaMediaLibraryViewModel {
     }
     
     func fetchMediaLibraryCollectionItems() {
+        
 
         guard !isFetchInProgress else {
+            return
+        }
+        
+        guard !hasReachedMaxPageLimit else{
             return
         }
         
@@ -67,8 +73,12 @@ class NasaMediaLibraryViewModel {
                     self.mediaLibraryCollectionItems.append(contentsOf: response.mediaLibraryCollection.mediaLibraryCollectionItems)
                     self.total = self.mediaLibraryCollectionItems.count
                     
+                    if response.mediaLibraryCollection.mediaLibraryCollectionLinks.filter({$0.prompt == "Next"}).first == nil
+                    {
+                        self.hasReachedMaxPageLimit = true
+                    }
                     // to do - check if this is correctly going to restrict the pages to 100.
-                    if response.mediaLibraryCollection.mediaLibraryCollectionLinks.filter({$0.prompt == "Next"}).first != nil && self.currentPage > 1 {
+                    if self.currentPage > 1 {
                         let indexPathsToReload = self.calculateIndexPathsToReload(from: response.mediaLibraryCollection.mediaLibraryCollectionItems)
                         self.delegate?.onFetchCompleted(with: indexPathsToReload)
                     } else {
