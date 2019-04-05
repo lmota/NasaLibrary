@@ -13,6 +13,25 @@
 		4056D9832256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D9822256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift */; };
 		4056D98622575BA100D27375 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4056D98822575BA100D27375 /* Localizable.strings */; };
 		4056D98A225762A300D27375 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D989225762A300D27375 /* Logger.swift */; };
+		4056D98B2257B02B00D27375 /* NasaMediaLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AFC2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift */; };
+		4056D98C2257B02E00D27375 /* NasaMediaLibraryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D9822256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift */; };
+		4056D98D2257B03A00D27375 /* NasaMediaLibraryRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AF92253E97800C88BFD /* NasaMediaLibraryRequestManager.swift */; };
+		4056D98E2257B03D00D27375 /* NasaMediaLibraryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B002254B66D00C88BFD /* NasaMediaLibraryRequest.swift */; };
+		4056D98F2257B04100D27375 /* NasaMediaResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B062254B83B00C88BFD /* NasaMediaResponseError.swift */; };
+		4056D9902257B04400D27375 /* NasaMediaLibraryPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B082254B92400C88BFD /* NasaMediaLibraryPageResponse.swift */; };
+		4056D9912257B04900D27375 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B022254B6EB00C88BFD /* URLRequestExtension.swift */; };
+		4056D9922257B04D00D27375 /* HTTPURLResponseExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B042254B7E500C88BFD /* HTTPURLResponseExtenstion.swift */; };
+		4056D9932257B05100D27375 /* AlertControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B0A2254F73D00C88BFD /* AlertControllerExtenstion.swift */; };
+		4056D9942257B05400D27375 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D97C2256AADA00D27375 /* Constants.swift */; };
+		4056D9952257B05800D27375 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D97E2256B14400D27375 /* ImageViewExtension.swift */; };
+		4056D9962257B05C00D27375 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D9802256B18600D27375 /* StringExtension.swift */; };
+		4056D9972257B05F00D27375 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4056D98822575BA100D27375 /* Localizable.strings */; };
+		4056D9982257B06300D27375 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D989225762A300D27375 /* Logger.swift */; };
+		4056D9992257B08900D27375 /* NasaLibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AFE2253F62400C88BFD /* NasaLibraryDetailTableViewCell.swift */; };
+		4056D99A2257B08D00D27375 /* NasaMediaLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */; };
+		4056D99B2257B08F00D27375 /* NasaLibraryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6B0C22560A4600C88BFD /* NasaLibraryDetailsViewController.swift */; };
+		4056D99C2257B09200D27375 /* NasaLibraryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AEF2253E09F00C88BFD /* NasaLibraryListTableViewCell.swift */; };
+		4056D99D2257B09700D27375 /* NasaMediaLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AF72253E8E800C88BFD /* NasaMediaLibraryModel.swift */; };
 		407D6AD02253D74700C88BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6ACF2253D74700C88BFD /* AppDelegate.swift */; };
 		407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */; };
 		407D6AD52253D74700C88BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407D6AD32253D74700C88BFD /* Main.storyboard */; };
@@ -299,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4056D9972257B05F00D27375 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +355,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4056D98C2257B02E00D27375 /* NasaMediaLibraryDetailViewModel.swift in Sources */,
+				4056D9942257B05400D27375 /* Constants.swift in Sources */,
+				4056D98E2257B03D00D27375 /* NasaMediaLibraryRequest.swift in Sources */,
+				4056D98B2257B02B00D27375 /* NasaMediaLibraryViewModel.swift in Sources */,
+				4056D9902257B04400D27375 /* NasaMediaLibraryPageResponse.swift in Sources */,
+				4056D98F2257B04100D27375 /* NasaMediaResponseError.swift in Sources */,
+				4056D99A2257B08D00D27375 /* NasaMediaLibraryViewController.swift in Sources */,
+				4056D9992257B08900D27375 /* NasaLibraryDetailTableViewCell.swift in Sources */,
+				4056D99B2257B08F00D27375 /* NasaLibraryDetailsViewController.swift in Sources */,
+				4056D9932257B05100D27375 /* AlertControllerExtenstion.swift in Sources */,
+				4056D9912257B04900D27375 /* URLRequestExtension.swift in Sources */,
 				407D6AE52253D74800C88BFD /* NasaMediaLibraryTests.swift in Sources */,
+				4056D99C2257B09200D27375 /* NasaLibraryListTableViewCell.swift in Sources */,
+				4056D9922257B04D00D27375 /* HTTPURLResponseExtenstion.swift in Sources */,
+				4056D9952257B05800D27375 /* ImageViewExtension.swift in Sources */,
+				4056D99D2257B09700D27375 /* NasaMediaLibraryModel.swift in Sources */,
+				4056D9982257B06300D27375 /* Logger.swift in Sources */,
+				4056D9962257B05C00D27375 /* StringExtension.swift in Sources */,
+				4056D98D2257B03A00D27375 /* NasaMediaLibraryRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
