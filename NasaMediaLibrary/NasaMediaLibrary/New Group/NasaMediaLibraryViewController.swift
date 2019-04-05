@@ -179,9 +179,6 @@ extension NasaMediaLibraryViewController:NasaLibraryListViewModelDelegate{
             tableView.reloadData()
             return
         }
-
-//        let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
-//        tableView.reloadRows(at: newIndexPathsToReload, with: .automatic)
         
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: newIndexPathsToReload, with:.fade)
