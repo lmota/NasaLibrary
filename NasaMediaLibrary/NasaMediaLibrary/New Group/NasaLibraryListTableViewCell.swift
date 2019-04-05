@@ -11,7 +11,7 @@ import UIKit
 class NasaLibraryListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nasaImage: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -35,8 +35,8 @@ class NasaLibraryListTableViewCell: UITableViewCell {
             guard let dateString = viewModel.getDate(at:index) else {
                 return
             }
-            location.text = dateString
-            location.isHidden = false
+            dateLabel.text = dateString
+            dateLabel.isHidden = false
             
             guard let imageURL = viewModel.getImageURL(at: index) else {
                 return
@@ -57,7 +57,7 @@ class NasaLibraryListTableViewCell: UITableViewCell {
           
         } else {
             title.isHidden = true
-            location.isHidden = true
+            dateLabel.isHidden = true
             nasaImage.isHidden = true
             spinner.startAnimating()
         }

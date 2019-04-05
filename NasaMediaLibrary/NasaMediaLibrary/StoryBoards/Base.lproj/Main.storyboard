@@ -90,6 +90,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="Afu-0n-e7V" id="iL4-xO-gaZ"/>
                                             <outlet property="location" destination="Afu-0n-e7V" id="efJ-aW-nVd"/>
                                             <outlet property="nasaImage" destination="wzA-q2-QXB" id="3X0-kk-aUQ"/>
                                             <outlet property="spinner" destination="ckl-DQ-6Jp" id="c0a-BM-8Tr"/>
@@ -157,7 +158,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBA-Zh-N4N">
                                                     <rect key="frame" x="15" y="241" width="345" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="deF-DL-Ixf"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="deF-DL-Ixf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
                                                     <nil key="textColor"/>
