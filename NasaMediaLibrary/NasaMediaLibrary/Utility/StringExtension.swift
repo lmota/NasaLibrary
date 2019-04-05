@@ -10,7 +10,9 @@ import Foundation
 
 
 extension String{
-    
+    /**
+     * String extension to convert the server date to a presentable format.
+     */
     func getFormattedDate() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Constants.serverDateFormat

@@ -12,3 +12,5 @@
 "Nasa Image Details" = "Nasa Image Details";
 "Please begin your search by entering the search text in the search bar" = "Please begin your search by entering the search text in the search bar";
 "Enter the nasa library search text" = "Enter the nasa library search text";
+"An error occurred while fetching nasa media response" = "An error occurred while fetching nasa media response";
+"Internal error occured while fetching nasa media response" = "Internal error occured while fetching nasa media response";

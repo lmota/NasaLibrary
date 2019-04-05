@@ -11,6 +11,9 @@ import UIKit
 
 extension UIImageView {
     
+    /**
+     * UIImageView extension to create rounded border
+     */
     func createRoundedBorder(){
         self.layer.cornerRadius = CGFloat(Constants.imageViewCornerRadius)
         self.layer.borderColor = UIColor.black.cgColor

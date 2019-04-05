@@ -24,18 +24,20 @@ class NasaLibraryDetailsViewController: UIViewController {
         self.setUpDetailView()
     }
     
+    // setting up the detail view
     private func setUpDetailView(){
-        
         self.navigationItem.title = "Nasa Image Details".localizedCapitalized
         self.detailTableView.dataSource = self
         self.detailTableView.reloadData()
         self.view.backgroundColor = Constants.backgroundColor
         detailTableView.backgroundColor = .clear
-
     }
 
 }
 
+/**
+ * table view data source delegates
+ */
 extension NasaLibraryDetailsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mediaLibraryDetailViewModel?.detailViewRowCount ?? 0

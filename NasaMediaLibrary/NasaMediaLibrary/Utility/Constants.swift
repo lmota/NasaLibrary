@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/**
+ * Struct for constants used in the application
+ */
 struct Constants{
     
     static let imageViewCornerRadius = 5.0

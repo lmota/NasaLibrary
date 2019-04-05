@@ -17,6 +17,7 @@ class NasaMediaLibraryDetailViewModel {
     }
     
     lazy var detailViewRowCount:Int = {
+        // setting this to 1 as we need to only show only one set of detail for selected item from the list. Not sure why the collection item response has data as an array instead of object.
         return Constants.detailsRowCount
     }()
     

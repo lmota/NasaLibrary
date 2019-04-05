@@ -20,17 +20,14 @@ class NasaLibraryDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // set up cell
         nasaDetailImageView.createRoundedBorder()
         detailDescriptionTextView.backgroundColor = .clear
         detailDescriptionTextView.textColor = .black
         self.contentView.backgroundColor = Constants.backgroundColor
-
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
+    // configure the cell from the view model
     func configure(with viewModel:NasaMediaLibraryDetailViewModel?) {
         if let viewModel = viewModel {
             
@@ -55,19 +52,19 @@ class NasaLibraryDetailTableViewCell: UITableViewCell {
                 return
             }
             
+            // using GCD to fetch the data for image url from backend on the background thread.
             DispatchQueue.global(qos:.background).async {
                 
                 if let url = URL(string:imageURL){
-                    if let data = try? Data(contentsOf: url) {//make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    if let data = try? Data(contentsOf: url) {
                         
+                        // once the data is received, ensure that the ui related tasks are performed on main thread.
                         DispatchQueue.main.async { [weak self] in
                             self?.nasaDetailImageView.image = UIImage(data: data)
                             self?.spinner.stopAnimating()
                         }
-                        
                     }
                 }
-                
             }
             
         } else {

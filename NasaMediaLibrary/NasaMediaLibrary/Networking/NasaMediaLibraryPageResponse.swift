@@ -8,7 +8,7 @@
 
 import Foundation
 
-// NasaMediaLibraryCollectionLinks "links" giving the next page information
+// NasaMediaLibraryItemLink "link" giving the image information
 struct NasaMediaLibraryItemLink:Decodable{
     let href:String
     let render:String
@@ -58,7 +58,7 @@ struct NasaMediaLibraryCollection: Decodable {
     }
 }
 
-// Nasa media library search response
+// Nasa media library search page response
 struct NasaMediaLibraryPageResponse: Decodable{
     
     let mediaLibraryCollection:NasaMediaLibraryCollection

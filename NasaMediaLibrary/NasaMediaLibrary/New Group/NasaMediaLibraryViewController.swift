@@ -39,6 +39,7 @@ class NasaMediaLibraryViewController: UIViewController {
 
     }
     
+    // setting up the view
     private func setUpView(){
 
         self.updateUI(for: .searchNotStarted)
@@ -55,7 +56,7 @@ class NasaMediaLibraryViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        // populating the details view controller with the view model and view model with the item at the selected row
         switch segue.identifier{
         case identifiers.segueIdentifier:
             if let detailViewController = segue.destination as? NasaLibraryDetailsViewController, let selectedCell = sender as? NasaLibraryListTableViewCell, let selectedIndexPath = tableView.indexPath(for: selectedCell), let detailModel = mediaLibraryListViewModel?.nasaMediaLibraryModel(at: selectedIndexPath.row) {                
@@ -66,6 +67,9 @@ class NasaMediaLibraryViewController: UIViewController {
         }
     }
     
+    /**
+     * function that updates the various ui elements on the screen based on its state
+     */
     private func updateUI(for state:mediaViewControllerStates){
         switch state {
         case .searchNotStarted:
@@ -100,18 +104,28 @@ class NasaMediaLibraryViewController: UIViewController {
 
 }
 
+/**
+ * scroll view delegate
+ */
 extension NasaMediaLibraryViewController:UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
+        /**
+         * Need to determine if user has scrolled to the bottom of the table, if yes, we fetch the additional pages from server
+         * this will implement the infinite scrolling behaviour for the tableview pagination.
+         */
         if (scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.height))
         {
-            Logger.logInfo("Can begin fetching media")
+            Logger.logInfo("Can begin fetching media if max page limit is not reached")
             mediaLibraryListViewModel?.fetchMediaLibraryCollectionItems()
         }
     }
 }
 
+/**
+ * table view data source delegates
+ */
 extension NasaMediaLibraryViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mediaLibraryListViewModel?.totalCount ?? 0
@@ -122,9 +136,9 @@ extension NasaMediaLibraryViewController:UITableViewDataSource{
                                                    for: indexPath) as? NasaLibraryListTableViewCell{
 
             if isLoadingCell(for: indexPath) {
-                cell.configure(with: .none)
+                cell.configure(at: indexPath.row, viewModel:.none)
             } else {
-                cell.configure(with: mediaLibraryListViewModel?.nasaMediaLibraryModel(at: indexPath.row))
+                cell.configure(at: indexPath.row, viewModel: mediaLibraryListViewModel)
             }
         
             cell.selectionStyle = .none
@@ -145,9 +159,11 @@ extension NasaMediaLibraryViewController:UITableViewDataSource{
 }
     
 
-
+/**
+ *  UITableViewDelegate implementation
+ */
 extension NasaMediaLibraryViewController:UITableViewDelegate{
-    
+    // on did select, navigate user to the details of that item
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: identifiers.segueIdentifier, sender:tableView.cellForRow(at: indexPath))
     }
@@ -155,6 +171,7 @@ extension NasaMediaLibraryViewController:UITableViewDelegate{
 }
 
 private extension NasaMediaLibraryViewController {
+    // determine if the loading cell needs to appear
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
 
         if let viewModel = mediaLibraryListViewModel{
@@ -162,16 +179,12 @@ private extension NasaMediaLibraryViewController {
         }
         return false
     }
-
-    func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
-        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
-        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
-        return Array(indexPathsIntersection)
-    }
 }
 
-
+// view model delegates once the fetching of the media is completed
 extension NasaMediaLibraryViewController:NasaLibraryListViewModelDelegate{
+    
+    //  on success case of the fetch completion
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
         self.updateUI(for: .searchEndedWithResults)
 
@@ -187,7 +200,7 @@ extension NasaMediaLibraryViewController:NasaLibraryListViewModelDelegate{
         self.tableView.scrollToRow(at: firstNewIndexPath, at: .top, animated:true)
     }
     
-    
+    // on the failure case of fetch completion
     func onFetchFailed(with reason: String) {
         
         self.updateUI(for: .searchFailedWithoutResults)
@@ -197,12 +210,14 @@ extension NasaMediaLibraryViewController:NasaLibraryListViewModelDelegate{
     }
 }
 
+// searhBar delegate methods.
 extension NasaMediaLibraryViewController: UISearchBarDelegate {
     
     @objc func dismissKeyboard() {
         searchBar.resignFirstResponder()
     }
     
+    // when the search is clicked, initialize the viewmodel and fetch the media items from server.
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         dismissKeyboard()
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
@@ -220,6 +235,7 @@ extension NasaMediaLibraryViewController: UISearchBarDelegate {
         return .topAttached
     }
     
+    // need to ensure that if user cleared the search then we update the ui back to its initial search not started state
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text, searchText.isEmpty{
             self.updateUI(for: .searchNotStarted)

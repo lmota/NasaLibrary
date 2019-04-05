@@ -24,28 +24,28 @@ class NasaLibraryListTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = Constants.backgroundColor
     }
     
-    func configure(with model:NasaMediaLibraryCollectionItem?) {
-        if let model = model {
-            guard let mediaLibraryData = model.mediaLibraryModels.first else {
+    func configure(at index:Int, viewModel:NasaMediaLibraryViewModel?) {
+        if let viewModel = viewModel {
+            guard let titleString = viewModel.getTitle(at:index) else {
                 return
             }
-            title.text = mediaLibraryData.title // fetch from model
+            title.text = titleString
             title.isHidden = false
             
-            if let formattedDate = mediaLibraryData.date.getFormattedDate(){
-                location.text = formattedDate
+            guard let dateString = viewModel.getDate(at:index) else {
+                return
             }
+            location.text = dateString
             location.isHidden = false
             
-            guard let mediaLibraryItemLink = model.links.first else {
+            guard let imageURL = viewModel.getImageURL(at: index) else {
                 return
             }
             
             DispatchQueue.global(qos:.background).async {
                 
-                if let url = URL(string:mediaLibraryItemLink.href){
-                    if let data = try? Data(contentsOf: url) {//make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                        
+                if let url = URL(string:imageURL){
+                    if let data = try? Data(contentsOf: url) {
                         DispatchQueue.main.async { [weak self] in
                             // once we have the data go back to main thread and load the image view
                             self?.nasaImage.image = UIImage(data: data)

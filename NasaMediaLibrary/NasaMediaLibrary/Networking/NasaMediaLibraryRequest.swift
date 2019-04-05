@@ -20,6 +20,11 @@ struct NasaMediaLibraryRequest {
 }
 
 extension NasaMediaLibraryRequest {
+    /**
+     * static function to form the request
+     * parameter site - path of the request
+     * return NasaMediaLibraryRequest - request to be sent for the apis
+     */
     static func from(site: String) -> NasaMediaLibraryRequest {
         let defaultParameters = [Constants.mediaTypeParameter: Constants.mediaTypeParameterValue]
         let parameters = [Constants.searchApiParameter: "\(site)"].merging(defaultParameters, uniquingKeysWith: +)

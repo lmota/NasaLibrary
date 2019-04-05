@@ -9,6 +9,7 @@
 import Foundation
 
 extension HTTPURLResponse {
+    // extension to HTTPURLResponse for success status codes.
     var hasSuccessStatusCode: Bool {
         return 200...299 ~= statusCode
     }

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ * struct to ensure that logs are printed only in the application debug scheme
+ */
 public struct Logger {
     
     /**

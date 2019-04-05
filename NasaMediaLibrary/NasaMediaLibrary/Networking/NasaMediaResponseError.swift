@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ * enum for the response failure.
+ */
 enum NasaMediaResponseError: Error {
     case network
     case decoding
@@ -15,9 +18,9 @@ enum NasaMediaResponseError: Error {
     var reason: String {
         switch self {
         case .network:
-            return "An error occurred while fetching nasa media response"
+            return "An error occurred while fetching nasa media response".localizedCapitalized
         case .decoding:
-            return "An error occurred while decoding nasa media response"
+            return "Internal error occured while fetching nasa media response".localizedCapitalized
         }
     }
 }

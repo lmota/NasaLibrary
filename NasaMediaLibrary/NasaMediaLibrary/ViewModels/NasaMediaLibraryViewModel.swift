@@ -8,6 +8,7 @@
 
 import Foundation
 
+// protocol declaration for the fetch completion functions
 protocol NasaLibraryListViewModelDelegate: class {
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?)
     func onFetchFailed(with reason: String)
@@ -44,15 +45,65 @@ class NasaMediaLibraryViewModel {
         return mediaLibraryCollectionItems[index]
     }
     
+    func getTitle(at index:Int)->String? {
+        guard index < mediaLibraryCollectionItems.count else { return nil }
+        
+        let collectionItem = mediaLibraryCollectionItems[index]
+        guard let mediaLibraryData = collectionItem.mediaLibraryModels.first else{
+            return nil
+        }
+        
+        return mediaLibraryData.title
+    }
+    
+    func getDescription(st index:Int)->String? {
+        guard index < mediaLibraryCollectionItems.count else { return nil }
+        
+        let collectionItem = mediaLibraryCollectionItems[index]
+        guard let mediaLibraryData = collectionItem.mediaLibraryModels.first else{
+            return nil
+        }
+        
+        return mediaLibraryData.description
+    }
+    
+    func getDate(at index:Int)->String? {
+        guard index < mediaLibraryCollectionItems.count else { return nil }
+        
+        let collectionItem = mediaLibraryCollectionItems[index]
+        guard let mediaLibraryData = collectionItem.mediaLibraryModels.first else{
+            return nil
+        }
+        
+        if let formattedDate = mediaLibraryData.date.getFormattedDate(){
+            return formattedDate
+        }
+        return nil
+    }
+    
+    func getImageURL(at index:Int)->String? {
+        
+        guard index < mediaLibraryCollectionItems.count else { return nil }
+        
+        let collectionItem = mediaLibraryCollectionItems[index]
+        guard let mediaLibraryItemLink = collectionItem.links.first else{
+            return nil
+        }
+
+        return mediaLibraryItemLink.href
+    }
+    
+    // fetching the media images from backend
     func fetchMediaLibraryCollectionItems() {
         
+        // since this method is called multiple times when user scrolls to the bottom of the table, we need to ensure that a fetch is not in pogress and we have not reached maximum page limit
         guard !isFetchInProgress, !hasReachedMaxPageLimit else {
             return
         }
         
         isFetchInProgress = true
         
-        requestManager.fetchModerators(with: request, page: currentPage) { result in
+        requestManager.fetchNasaMediaImages(with: request, page: currentPage) { result in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -68,14 +119,16 @@ class NasaMediaLibraryViewModel {
                     self.mediaLibraryCollectionItems.append(contentsOf: response.mediaLibraryCollection.mediaLibraryCollectionItems)
                     self.total = self.mediaLibraryCollectionItems.count
                     
+                    // we check the next link for the current response. if its not present, we have reached the max page limit
                     if response.mediaLibraryCollection.mediaLibraryCollectionLinks.filter({$0.prompt == "Next"}).first == nil {
                         self.hasReachedMaxPageLimit = true
                     }
                     
+                    // if current page is greater than one then we want to insert the additional items
                     if self.currentPage > 1 {
                         let indexPathsToReload = self.calculateIndexPathsToReload(from: response.mediaLibraryCollection.mediaLibraryCollectionItems)
                         self.delegate?.onFetchCompleted(with: indexPathsToReload)
-                    } else {
+                    } else { // if current page is first page then we need to reload the table
                         self.delegate?.onFetchCompleted(with: .none)
                     }
                 }
@@ -83,8 +136,8 @@ class NasaMediaLibraryViewModel {
         }
     }
     
-
-    func calculateIndexPathsToReload(from newMediaLibraryCollectionItems: [NasaMediaLibraryCollectionItem]) -> [IndexPath]{
+    // utility method to compute the index paths that need to be reloaded
+    private func calculateIndexPathsToReload(from newMediaLibraryCollectionItems: [NasaMediaLibraryCollectionItem]) -> [IndexPath]{
         let startIndex = mediaLibraryCollectionItems.count - newMediaLibraryCollectionItems.count
         let endIndex = startIndex + newMediaLibraryCollectionItems.count
         return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }

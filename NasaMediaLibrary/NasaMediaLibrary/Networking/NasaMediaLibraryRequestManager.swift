@@ -14,8 +14,9 @@ enum Result<T, U: Error> {
 }
 
 class NasaMediaLibraryRequestManager{
-    private lazy var baseURL: URL = {
-        return URL(string: Constants.nasaMediaAPIURL)!
+    
+    private lazy var baseURL: URL? = {
+        return URL(string: Constants.nasaMediaAPIURL)
     }()
     
     let session: URLSession
@@ -24,11 +25,19 @@ class NasaMediaLibraryRequestManager{
         self.session = session
     }
     
-    func fetchModerators(with request: NasaMediaLibraryRequest, page: Int,
+    /**
+     * fetching Media images from nasa
+     * parameters : request - urlRequest, page - requested page number, completion - closure to execute once the response is received
+     * return - nothing
+     */
+    func fetchNasaMediaImages(with request: NasaMediaLibraryRequest, page: Int,
                          completion: @escaping (Result<NasaMediaLibraryPageResponse, NasaMediaResponseError>) -> Void) {
-
+        guard let baseURL = baseURL else{
+            return
+        }
         let urlRequest = URLRequest(url: baseURL.appendingPathComponent(request.path))
         
+        // current page is initialized to zero, hence adding 1 to start requesting pages from 1
         let parameters = [Constants.pageParameter: "\(page+1)"].merging(request.parameters, uniquingKeysWith: +)
         
         let encodedURLRequest = urlRequest.encode(with: parameters)
