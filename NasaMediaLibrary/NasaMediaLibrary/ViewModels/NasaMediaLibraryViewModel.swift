@@ -46,12 +46,7 @@ class NasaMediaLibraryViewModel {
     
     func fetchMediaLibraryCollectionItems() {
         
-
-        guard !isFetchInProgress else {
-            return
-        }
-        
-        guard !hasReachedMaxPageLimit else{
+        guard !isFetchInProgress, !hasReachedMaxPageLimit else {
             return
         }
         
@@ -73,11 +68,10 @@ class NasaMediaLibraryViewModel {
                     self.mediaLibraryCollectionItems.append(contentsOf: response.mediaLibraryCollection.mediaLibraryCollectionItems)
                     self.total = self.mediaLibraryCollectionItems.count
                     
-                    if response.mediaLibraryCollection.mediaLibraryCollectionLinks.filter({$0.prompt == "Next"}).first == nil
-                    {
+                    if response.mediaLibraryCollection.mediaLibraryCollectionLinks.filter({$0.prompt == "Next"}).first == nil {
                         self.hasReachedMaxPageLimit = true
                     }
-                    // to do - check if this is correctly going to restrict the pages to 100.
+                    
                     if self.currentPage > 1 {
                         let indexPathsToReload = self.calculateIndexPathsToReload(from: response.mediaLibraryCollection.mediaLibraryCollectionItems)
                         self.delegate?.onFetchCompleted(with: indexPathsToReload)
@@ -87,13 +81,12 @@ class NasaMediaLibraryViewModel {
                 }
             }
         }
-}
+    }
     
 
-func calculateIndexPathsToReload(from newMediaLibraryCollectionItems: [NasaMediaLibraryCollectionItem]) -> [IndexPath]{
-    let startIndex = mediaLibraryCollectionItems.count - newMediaLibraryCollectionItems.count
-    let endIndex = startIndex + newMediaLibraryCollectionItems.count
-    return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
-}
-    
+    func calculateIndexPathsToReload(from newMediaLibraryCollectionItems: [NasaMediaLibraryCollectionItem]) -> [IndexPath]{
+        let startIndex = mediaLibraryCollectionItems.count - newMediaLibraryCollectionItems.count
+        let endIndex = startIndex + newMediaLibraryCollectionItems.count
+        return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 struct NasaMediaLibraryRequest {
     var path: String {
-        return "search"
+        return Constants.nasaMediaSearchAPIPath
     }
     
     let parameters: Parameters
@@ -21,8 +21,8 @@ struct NasaMediaLibraryRequest {
 
 extension NasaMediaLibraryRequest {
     static func from(site: String) -> NasaMediaLibraryRequest {
-        let defaultParameters = ["media_type": "image"]
-        let parameters = ["q": "\(site)"].merging(defaultParameters, uniquingKeysWith: +)
+        let defaultParameters = [Constants.mediaTypeParameter: Constants.mediaTypeParameterValue]
+        let parameters = [Constants.searchApiParameter: "\(site)"].merging(defaultParameters, uniquingKeysWith: +)
         return NasaMediaLibraryRequest(parameters: parameters)
     }
 }

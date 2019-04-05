@@ -23,44 +23,41 @@ class NasaLibraryDetailTableViewCell: UITableViewCell {
         nasaDetailImageView.createRoundedBorder()
         detailDescriptionTextView.backgroundColor = .clear
         detailDescriptionTextView.textColor = .black
-        self.contentView.backgroundColor = UIColor(red:0.925, green: 1.0, blue: 1.0, alpha: 1)
+        self.contentView.backgroundColor = Constants.backgroundColor
 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
-    func configure(with model:NasaMediaLibraryCollectionItem?) {
-        if let model = model {
+    func configure(with viewModel:NasaMediaLibraryDetailViewModel?) {
+        if let viewModel = viewModel {
             
             detailTitleLabel.isHidden = false
             detailDescriptionTextView.isHidden = false
             nasaDetailImageView.isHidden = false
             detailDateLabel.isHidden = false
             
-            guard let mediaLibraryData = model.mediaLibraryModels.first else
-            {
-                return
+            if let detailTitle = viewModel.getTitle(){
+                detailTitleLabel.text = detailTitle
             }
-            
-            detailTitleLabel.text = mediaLibraryData.title
 
-            if let formattedDate = mediaLibraryData.date.getFormattedDate(){
-                detailDateLabel.text = formattedDate
+            if let detailDate = viewModel.getDate(){
+                detailDateLabel.text = detailDate
             }
-            detailDescriptionTextView.text = mediaLibraryData.description
             
-            guard let mediaLibraryItemLink = model.links.first else
-            {
+            if let detailDescription = viewModel.getDescription(){
+                detailDescriptionTextView.text = detailDescription
+            }
+            
+            guard let imageURL = viewModel.getImageURL() else {
                 return
             }
             
             DispatchQueue.global(qos:.background).async {
                 
-                if let url = URL(string:mediaLibraryItemLink.href){
+                if let url = URL(string:imageURL){
                     if let data = try? Data(contentsOf: url) {//make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
                         
                         DispatchQueue.main.async { [weak self] in

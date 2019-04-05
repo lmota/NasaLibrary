@@ -15,7 +15,7 @@ enum Result<T, U: Error> {
 
 class NasaMediaLibraryRequestManager{
     private lazy var baseURL: URL = {
-        return URL(string: "https://images-api.nasa.gov/")!
+        return URL(string: Constants.nasaMediaAPIURL)!
     }()
     
     let session: URLSession
@@ -29,7 +29,7 @@ class NasaMediaLibraryRequestManager{
 
         let urlRequest = URLRequest(url: baseURL.appendingPathComponent(request.path))
         
-        let parameters = ["page": "\(page+1)"].merging(request.parameters, uniquingKeysWith: +)
+        let parameters = [Constants.pageParameter: "\(page+1)"].merging(request.parameters, uniquingKeysWith: +)
         
         let encodedURLRequest = urlRequest.encode(with: parameters)
         
@@ -50,7 +50,7 @@ class NasaMediaLibraryRequestManager{
                 completion(Result.success(decodedResponse))
 
             } catch let error {
-                print(error)
+                Logger.logInfo(error.localizedDescription)
                 completion(Result.failure(NasaMediaResponseError.decoding))
             }
             

@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  NasaMediaLibrary
+
+  Created by Dharamshi, Lopa D on 4/5/19.
+  Copyright © 2019 Dharamshi Lopa D. All rights reserved.
+*/
+
+"Search Nasa Media Library" = "Search Nasa Media Library";
+"Failed to load the media" = "Failed to load the media";
+"OK" = "OK";
+"Nasa Image Details" = "Nasa Image Details";
+"Please begin your search by entering the search text in the search bar" = "Please begin your search by entering the search text in the search bar";
+"Enter the nasa library search text" = "Enter the nasa library search text";

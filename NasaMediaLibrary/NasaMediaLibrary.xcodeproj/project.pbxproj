@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4056D97D2256AADA00D27375 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D97C2256AADA00D27375 /* Constants.swift */; };
+		4056D97F2256B14400D27375 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D97E2256B14400D27375 /* ImageViewExtension.swift */; };
+		4056D9812256B18600D27375 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D9802256B18600D27375 /* StringExtension.swift */; };
+		4056D9832256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D9822256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift */; };
+		4056D98622575BA100D27375 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4056D98822575BA100D27375 /* Localizable.strings */; };
+		4056D98A225762A300D27375 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056D989225762A300D27375 /* Logger.swift */; };
 		407D6AD02253D74700C88BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6ACF2253D74700C88BFD /* AppDelegate.swift */; };
 		407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */; };
 		407D6AD52253D74700C88BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407D6AD32253D74700C88BFD /* Main.storyboard */; };
@@ -40,6 +45,11 @@
 
 /* Begin PBXFileReference section */
 		4056D97C2256AADA00D27375 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4056D97E2256B14400D27375 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		4056D9802256B18600D27375 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		4056D9822256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryDetailViewModel.swift; sourceTree = "<group>"; };
+		4056D98722575BA100D27375 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4056D989225762A300D27375 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		407D6ACC2253D74700C88BFD /* NasaMediaLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaMediaLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D6ACF2253D74700C88BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407D6AD12253D74700C88BFD /* NasaMediaLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaMediaLibraryViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +172,10 @@
 				407D6B042254B7E500C88BFD /* HTTPURLResponseExtenstion.swift */,
 				407D6B0A2254F73D00C88BFD /* AlertControllerExtenstion.swift */,
 				4056D97C2256AADA00D27375 /* Constants.swift */,
+				4056D97E2256B14400D27375 /* ImageViewExtension.swift */,
+				4056D9802256B18600D27375 /* StringExtension.swift */,
+				4056D98822575BA100D27375 /* Localizable.strings */,
+				4056D989225762A300D27375 /* Logger.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -188,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				407D6AFC2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift */,
+				4056D9822256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -274,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				407D6ADA2253D74800C88BFD /* LaunchScreen.storyboard in Resources */,
+				4056D98622575BA100D27375 /* Localizable.strings in Resources */,
 				407D6AD72253D74800C88BFD /* Assets.xcassets in Resources */,
 				407D6AD52253D74700C88BFD /* Main.storyboard in Resources */,
 			);
@@ -293,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4056D98A225762A300D27375 /* Logger.swift in Sources */,
 				407D6B032254B6EB00C88BFD /* URLRequestExtension.swift in Sources */,
 				407D6B092254B92400C88BFD /* NasaMediaLibraryPageResponse.swift in Sources */,
 				407D6B0B2254F73D00C88BFD /* AlertControllerExtenstion.swift in Sources */,
@@ -301,12 +318,15 @@
 				4056D97D2256AADA00D27375 /* Constants.swift in Sources */,
 				407D6AF02253E09F00C88BFD /* NasaLibraryListTableViewCell.swift in Sources */,
 				407D6AD22253D74700C88BFD /* NasaMediaLibraryViewController.swift in Sources */,
+				4056D9812256B18600D27375 /* StringExtension.swift in Sources */,
+				4056D9832256B30100D27375 /* NasaMediaLibraryDetailViewModel.swift in Sources */,
 				407D6AFD2253E9D800C88BFD /* NasaMediaLibraryViewModel.swift in Sources */,
 				407D6AD02253D74700C88BFD /* AppDelegate.swift in Sources */,
 				407D6AFA2253E97800C88BFD /* NasaMediaLibraryRequestManager.swift in Sources */,
 				407D6B0D22560A4600C88BFD /* NasaLibraryDetailsViewController.swift in Sources */,
 				407D6AF82253E8E800C88BFD /* NasaMediaLibraryModel.swift in Sources */,
 				407D6B072254B83B00C88BFD /* NasaMediaResponseError.swift in Sources */,
+				4056D97F2256B14400D27375 /* ImageViewExtension.swift in Sources */,
 				407D6B052254B7E500C88BFD /* HTTPURLResponseExtenstion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +350,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4056D98822575BA100D27375 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4056D98722575BA100D27375 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		407D6AD32253D74700C88BFD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

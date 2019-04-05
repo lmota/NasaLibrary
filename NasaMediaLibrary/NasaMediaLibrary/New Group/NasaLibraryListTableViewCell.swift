@@ -18,21 +18,15 @@ class NasaLibraryListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
         nasaImage.createRoundedBorder()
         self.contentView.backgroundColor = Constants.backgroundColor
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func configure(with model:NasaMediaLibraryCollectionItem?) {
         if let model = model {
-            guard let mediaLibraryData = model.mediaLibraryModels.first else
-            {
+            guard let mediaLibraryData = model.mediaLibraryModels.first else {
                 return
             }
             title.text = mediaLibraryData.title // fetch from model
@@ -41,11 +35,9 @@ class NasaLibraryListTableViewCell: UITableViewCell {
             if let formattedDate = mediaLibraryData.date.getFormattedDate(){
                 location.text = formattedDate
             }
-            
             location.isHidden = false
             
-            guard let mediaLibraryItemLink = model.links.first else
-            {
+            guard let mediaLibraryItemLink = model.links.first else {
                 return
             }
             
@@ -59,10 +51,8 @@ class NasaLibraryListTableViewCell: UITableViewCell {
                             self?.nasaImage.image = UIImage(data: data)
                             self?.spinner.stopAnimating()
                         }
-                        
                     }
                 }
-  
             }
           
         } else {
@@ -72,33 +62,4 @@ class NasaLibraryListTableViewCell: UITableViewCell {
             spinner.startAnimating()
         }
     }
-
-}
-
-extension String{
-    
-    func getFormattedDate() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.serverDateFormat
-        
-        let dateFormatterNew = DateFormatter()
-        dateFormatterNew.dateFormat = Constants.desiredDateFormat
-        dateFormatterNew.timeZone = TimeZone(abbreviation: Constants.timeZone) // check if this is needed
-        if let date = dateFormatter.date(from: self){
-            return dateFormatterNew.string(from: date)
-        }
-        
-        return nil
-    }
-    
-}
-
-extension UIImageView {
-    
-    func createRoundedBorder(){
-        self.layer.cornerRadius = CGFloat(Constants.imageViewCornerRadius)
-        self.layer.borderColor = UIColor.black.cgColor
-        self.clipsToBounds = true
-    }
-    
 }

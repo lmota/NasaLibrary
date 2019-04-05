@@ -42,13 +42,17 @@ class NasaMediaLibraryViewController: UIViewController {
     private func setUpView(){
 
         self.updateUI(for: .searchNotStarted)
-        self.navigationItem.title = "Search Nasa Media Library"
+        self.navigationItem.title = "Search Nasa Media Library".localizedCapitalized
         tableView.separatorColor = .gray
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
-//        tableView.register(NasaLibraryListTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.list)
+        informatoryLabel.text = "Please begin your search by entering the search text in the search bar".localizedCapitalized
+        searchBar.placeholder = "Enter the nasa library search text".localizedCapitalized
+        self.view.backgroundColor = Constants.backgroundColor
+        tableView.backgroundColor = .clear
+
+        //        tableView.register(NasaLibraryListTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.list)
         
     }
     
@@ -56,8 +60,8 @@ class NasaMediaLibraryViewController: UIViewController {
         
         switch segue.identifier{
         case identifiers.segueIdentifier:
-            if let detailViewController = segue.destination as? NasaLibraryDetailsViewController, let selectedCell = sender as? NasaLibraryListTableViewCell, let selectedIndexPath = tableView.indexPath(for: selectedCell) {
-                detailViewController.detailModel = mediaLibraryListViewModel?.nasaMediaLibraryModel(at: selectedIndexPath.row)
+            if let detailViewController = segue.destination as? NasaLibraryDetailsViewController, let selectedCell = sender as? NasaLibraryListTableViewCell, let selectedIndexPath = tableView.indexPath(for: selectedCell), let detailModel = mediaLibraryListViewModel?.nasaMediaLibraryModel(at: selectedIndexPath.row) {                
+                detailViewController.mediaLibraryDetailViewModel = NasaMediaLibraryDetailViewModel(detailModel: detailModel)
 
             }
         default: break
@@ -101,11 +105,10 @@ class NasaMediaLibraryViewController: UIViewController {
 extension NasaMediaLibraryViewController:UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("currentCount - \(String(describing: mediaLibraryListViewModel?.currentCount)) currentPage=\(String(describing: mediaLibraryListViewModel?.currentPage))")
 
         if (scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.height))
         {
-            print("Can begin fetch")
+            Logger.logInfo("Can begin fetching media")
             mediaLibraryListViewModel?.fetchMediaLibraryCollectionItems()
         }
     }
@@ -193,8 +196,8 @@ extension NasaMediaLibraryViewController:NasaLibraryListViewModelDelegate{
     func onFetchFailed(with reason: String) {
         
         self.updateUI(for: .searchFailedWithoutResults)
-        let title = "Failed to load the media"
-        let action = UIAlertAction(title: "OK", style: .default)
+        let title = "Failed to load the media".localizedCapitalized
+        let action = UIAlertAction(title: "OK".localizedUppercase, style: .default)
         self.displayAlert(with: title , message: reason, actions: [action])
     }
 }

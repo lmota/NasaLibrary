@@ -10,8 +10,8 @@ import UIKit
 
 class NasaLibraryDetailsViewController: UIViewController {
     
-    var detailModel:NasaMediaLibraryCollectionItem?
     @IBOutlet weak var detailTableView: UITableView!
+    var mediaLibraryDetailViewModel:NasaMediaLibraryDetailViewModel?
     
     private enum detailIdentifiers {
         static let CellIdentifier = "nasa library detail cell"
@@ -26,24 +26,26 @@ class NasaLibraryDetailsViewController: UIViewController {
     
     private func setUpDetailView(){
         
-        self.navigationItem.title = "Nasa Image Details"
+        self.navigationItem.title = "Nasa Image Details".localizedCapitalized
         self.detailTableView.dataSource = self
         self.detailTableView.reloadData()
+        self.view.backgroundColor = Constants.backgroundColor
+        detailTableView.backgroundColor = .clear
+
     }
 
 }
 
 extension NasaLibraryDetailsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailModel?.mediaLibraryModels.count ?? 0
+        return mediaLibraryDetailViewModel?.detailViewRowCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        if let cell = tableView.dequeueReusableCell(withIdentifier: detailIdentifiers.CellIdentifier,
                                                    for: indexPath) as? NasaLibraryDetailTableViewCell{
         
-        
-            cell.configure(with:detailModel)
+            cell.configure(with:mediaLibraryDetailViewModel)
             cell.selectionStyle = .none
             return cell
         }
