@@ -51,8 +51,6 @@ class NasaMediaLibraryViewController: UIViewController {
         searchBar.placeholder = "Enter the nasa library search text".localizedCapitalized
         self.view.backgroundColor = Constants.backgroundColor
         tableView.backgroundColor = .clear
-
-        //        tableView.register(NasaLibraryListTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.list)
         
     }
     
