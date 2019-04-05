@@ -17,7 +17,7 @@ protocol NasaLibraryListViewModelDelegate: class {
 class NasaMediaLibraryViewModel {
     
     private weak var delegate: NasaLibraryListViewModelDelegate?
-    private var mediaLibraryCollectionItems: [NasaMediaLibraryCollectionItem] = []
+    var mediaLibraryCollectionItems: [NasaMediaLibraryCollectionItem] = []
     
     private var currentPage = 0
     private var total = 0
@@ -56,7 +56,7 @@ class NasaMediaLibraryViewModel {
         return mediaLibraryData.title
     }
     
-    func getDescription(st index:Int)->String? {
+    func getDescription(at index:Int)->String? {
         guard index < mediaLibraryCollectionItems.count else { return nil }
         
         let collectionItem = mediaLibraryCollectionItems[index]
