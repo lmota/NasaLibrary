@@ -91,7 +91,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="Afu-0n-e7V" id="iL4-xO-gaZ"/>
-                                            <outlet property="location" destination="Afu-0n-e7V" id="efJ-aW-nVd"/>
                                             <outlet property="nasaImage" destination="wzA-q2-QXB" id="3X0-kk-aUQ"/>
                                             <outlet property="spinner" destination="ckl-DQ-6Jp" id="c0a-BM-8Tr"/>
                                             <outlet property="title" destination="Cf5-nA-yXL" id="g3g-Bg-d2I"/>
