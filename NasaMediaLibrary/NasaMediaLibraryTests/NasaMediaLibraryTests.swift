@@ -74,4 +74,17 @@ class NasaMediaLibraryTests: XCTestCase {
         XCTAssertNil(actualDate)
     }
     
+    func testListViewModelGetImageURL() {
+        let actualImageURL = viewModelTest?.getImageURL(at:0)
+        let desiredImageURL = "https://images-assets.nasa.gov/image/S69-39962/S69-39962~thumb.jpg"
+        XCTAssertEqual(actualImageURL, desiredImageURL)
+    }
+    
+    func testListViewModelGetImageURLAtInvalidIndex() {
+        
+        let actualImageURL = viewModelTest?.getImageURL(at:1)
+        XCTAssertNil(actualImageURL)
+    }
+    
+    
 }
